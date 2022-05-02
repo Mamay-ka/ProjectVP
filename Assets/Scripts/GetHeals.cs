@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GetHeals : MonoBehaviour
 {
     [SerializeField] float Heals;
+    public Action GetHealsDestroyed;
     
    
 
@@ -26,6 +28,8 @@ public class GetHeals : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            SpotHealthController = null;
+            GetHealsDestroyed?.Invoke(); //быстрая проверка на null
             Destroy(gameObject);
         }
     }

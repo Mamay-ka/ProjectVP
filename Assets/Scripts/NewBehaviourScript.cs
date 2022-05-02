@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] float VisionRadius = 10;
+    [SerializeField] float VisionRadius = 0;
     [SerializeField] Transform Ghost;
     [SerializeField] Transform Sphere;
     [SerializeField] Transform AmmoHead;

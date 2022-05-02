@@ -9,7 +9,7 @@ public class SpawnPoint : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             Instantiate(objToSpawn, spawnPoint.transform.position, Quaternion.identity);
             break;
@@ -18,9 +18,8 @@ public class SpawnPoint : MonoBehaviour
 
     void Update()
     {
-        
 
-       
+        
 
     }
 
