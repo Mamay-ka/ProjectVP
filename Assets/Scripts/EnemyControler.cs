@@ -12,12 +12,15 @@ public class EnemyControler : MonoBehaviour
     [SerializeField] Transform[] PatrolPos;
     [SerializeField] int PatrolPosIndex = 0;
 
+    
+
     private NavMeshAgent _agent;
     
 
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        
     }
 
     void Start()
@@ -25,6 +28,7 @@ public class EnemyControler : MonoBehaviour
         //_agent.destination = PatrolPos.position; - направить агента перемещаться в указанную точку
 
         _agent.destination = PatrolPos[PatrolPosIndex].position;
+        
     }
 
     
@@ -34,11 +38,30 @@ public class EnemyControler : MonoBehaviour
         {
             //var index = Random.Range(0, PatrolPos.Length); - рандомное назначение точек перемещения агента
             //_agent.destination = PatrolPos[index].position;
-
+           
             PatrolPosIndex = (PatrolPosIndex + 1) % PatrolPos.Length;
             _agent.destination = PatrolPos[PatrolPosIndex].position;
 
 
         }
+
+        if(PatrolPosIndex >= 3)
+        {
+            _agent.destination = PatrolPos[0].position;
+        }
+
+
+       
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            
+            _agent.destination = PatrolPos[4].position;
+
+        }
+
     }
 }

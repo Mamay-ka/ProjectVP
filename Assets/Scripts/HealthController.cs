@@ -7,7 +7,7 @@ public class HealthController : MonoBehaviour
     [SerializeField] float MaxHealth = 100;
     private float _currentHealth;
     public float CurrentHealth { get => _currentHealth; }
-
+    
     void Start()
     {
         _currentHealth = MaxHealth;
@@ -33,8 +33,7 @@ public class HealthController : MonoBehaviour
             _currentHealth = 100;
         }
 
-
-
     }
+      
 
 }

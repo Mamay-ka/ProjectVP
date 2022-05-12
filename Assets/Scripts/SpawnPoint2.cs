@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-    public class SpawnPoint2 : MonoBehaviour
-    {
+public class SpawnPoint2 : MonoBehaviour
+{
+            
         public GameObject spawnPoint;
-        public GameObject objToSpawn;
+            public GameObject objToSpawn;
 
-        
+    
 
-        void Update()
+    void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(objToSpawn, spawnPoint.transform.position, Quaternion.identity);
+                Destroy(Instantiate(objToSpawn, spawnPoint.transform.position, Quaternion.identity), 3f);//уничтожить по€вл€ющиес€ объекты
+                
             }
 
 
-
-        }
-
     }
+   
+
+}
 
 
 
