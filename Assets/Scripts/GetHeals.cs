@@ -30,7 +30,7 @@ public class GetHeals : MonoBehaviour
         {
             SpotHealthController = null;
             GetHealsDestroyed?.Invoke(); //быстрая проверка на null
-            Destroy(gameObject);
+            Destroy(gameObject, 1);
         }
     }
 
