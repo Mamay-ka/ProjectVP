@@ -5,13 +5,13 @@ using UnityEngine;
 namespace Maze
 {
 
-
+    
 
     public class EssentialBonus : Bonus, IRotation
     {
         private float _speedRotation;
 
-        private void Awake()
+        public override void Awake()
         {
             _speedRotation = 10f; 
         }
@@ -28,7 +28,7 @@ namespace Maze
         }
 
         
-        void Update()
+        public override void Update()
         {
             Rotate();
         }

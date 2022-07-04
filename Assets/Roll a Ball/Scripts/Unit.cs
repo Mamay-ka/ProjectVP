@@ -13,6 +13,7 @@ namespace Maze
         public float _speed = 5f;//будет скорость в любом случае
         public int _health = 100;
         public bool _isDead;
+       
 
         public virtual void Awake()//пропишем Авэйк для инициализации
         {
