@@ -1,6 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;//
 
 namespace Maze
 {
@@ -9,6 +10,9 @@ namespace Maze
     {
         //private float hightFly;//переменная для высоты полета, чтобы реализовать метод Fly
         private float speedRotation;//переменная скорости вращения для метода Rotate
+
+                                                         // анонимный метод.                  
+        public event Action<string, Color> OnGameOver = delegate (string str, Color color) { };//создадим событие и передадим название объекта в который мы врезались и цвет
 
         
 
@@ -33,7 +37,8 @@ namespace Maze
 
         protected override void Interaction()
         {
-            //decreasе health
+            OnGameOver?.Invoke(gameObject.name, _color);//вызываем событие с проверкой на нулл через Инвок(в скобках имя нашего бонуса и его цвет)
+                                                        //в результате формируется объект, который содержит эти параметры
         }
         
         public override void Update()

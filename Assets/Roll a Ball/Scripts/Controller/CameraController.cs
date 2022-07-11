@@ -25,5 +25,11 @@ namespace Maze
         }
 
         //добавим все в наш Мэйн
+        public void CameraBump()
+        {
+            
+            Debug.Log("You are great!");
+            
+        }
     }
 }

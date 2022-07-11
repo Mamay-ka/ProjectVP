@@ -8,7 +8,7 @@ namespace Maze
     public abstract class Bonus : MonoBehaviour, IExecute
     {
         private bool _isInteractable;//переменная, включeн этот бонус или нет.Понадобиться для вкл/выкл бонусов
-        private Color _color;//заведем цвет
+        protected Color _color;//заведем цвет. Сделаем протэктед, чтобы мы могли его передать
         private Renderer _renderer;//сделаем ссылки на компоненты рендерера и коллайдера
         private Collider _collider;
 

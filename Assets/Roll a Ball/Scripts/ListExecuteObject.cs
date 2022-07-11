@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System;
+using Object = UnityEngine.Object;
 
 namespace Maze
 {
@@ -20,6 +21,15 @@ namespace Maze
         }
         public ListExecuteObject()//напишем конструктор нашего класса
         {
+            Bonus[] BonusObj = Bonus.FindObjectsOfType<Bonus>();//напишем временный массив и обратимся к не очень эфффективному методу ФиндОбж...
+            for(int i = 0; i < BonusObj.Length; i++)
+            {
+                if(BonusObj[i] is IExecute IntObject)//добавляем в ListExecuteObjec. Если этот элемент массива реализует этот интерфейс
+                {
+                    AddExecuteObject(IntObject);//то мы его добавляем в наш общий лист
+                }
+
+            }
             //произведем инициализацию нашего массива
             //соберем Бонусы и добавим в наш массив
         }

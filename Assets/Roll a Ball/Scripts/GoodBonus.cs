@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,14 +7,24 @@ namespace Maze
 
     public class GoodBonus : Bonus, IFly, IFlick
     {
+        public event Action<int>AddPoints = delegate (int i){ };//событие
+        
+        
+
         private Material _material;
+        private int _point;
+        
+
         
 
         public override void Awake()
         {
             base.Awake();
             _material = BonusRenderer.material;//из класса Bonus, чтобы повторно не запрашивать GetComponent из ссылки
-            _heightFly =  2f;
+            _heightFly =  0.5f;
+            _point = 1;
+            
+            
         }
 
         public void Fly()
@@ -31,7 +41,11 @@ namespace Maze
 
         protected override void Interaction()
         {
-            //add health
+            //вызов события
+            AddPoints?.Invoke(_point);//в Инвок передаем количество очков, которые будут даваться за бонус
+                       
+           
+           
         }
 
 
