@@ -4,18 +4,57 @@ using UnityEngine;
 
 namespace Maze
 {
+    public struct PlayerData //сделаем структуру дл€ игрока
+    {
+        public string Name;
+        public Vector3 Position;
+        public Quaternion Rotation;
+        public int Health;
+        public bool PlayerDead;
+       
+
+        public PlayerData(Player player)
+        {
+            Name = player.name;
+            Position = player.transform.position;
+            Rotation = player.transform.rotation;
+            Health = player._health;
+            PlayerDead = player._isDead;
+        }
+
+
+    }
 
     public class Player : Unit //унаследуемс€ от ёнита
     {
+        public PlayerData _playerData;
+        private ISaveData _data;//ссылка на интрефейс с сохранением
+
         delegate void Message();//объ€вили делегат
         Message myMessage;//объ€вл€ем переменную дл€ использовани€ делегата
         public override void Awake()
         {
             base.Awake();//получили ссылки и можем с ними работать дальше
             //myMessage = Temp;//в эту переменную присвоим адрес нашего метода
+            _health = 100;
 
             myMessage += Temp;//через += можем добавить в один делегат сразу несколько методов. √руппова€ адресаци€
             myMessage += TempMessage;
+
+            _playerData = new PlayerData(this);//проинициализируем. ѕолучим все данные пр€мо в јвэйке
+            //_data = new JSONData();//инициализируем сохранение данных разными типами сохранений
+            _data = new StreamData();
+
+            _data.SaveData(_playerData);
+
+            //теперь нужно загрузить нашу структуру после того, как мы ее сохранили
+            PlayerData temp = new PlayerData();
+            temp = _data.Load();//заполним ее тем, что вернет метод Load
+
+            Debug.Log(temp.Health);
+            Debug.Log(temp.Position);
+            Debug.Log(temp.Rotation);
+            Debug.Log(temp.PlayerDead);
         }
 
 
