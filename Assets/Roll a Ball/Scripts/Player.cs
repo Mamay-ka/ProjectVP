@@ -43,7 +43,8 @@ namespace Maze
 
             _playerData = new PlayerData(this);//проинициализируем. Получим все данные прямо в Авэйке
             //_data = new JSONData();//инициализируем сохранение данных разными типами сохранений
-            _data = new StreamData();
+            //_data = new StreamData();
+            _data = new XMLData();
 
             _data.SaveData(_playerData);
 

@@ -22,7 +22,7 @@ namespace Maze
         [SerializeField] private Text _pointLabel;//заведем ссылку
         [SerializeField] private Text _gameOverLabel;
         [SerializeField] private Button _restartButton;//включаем кнопку Рестарт Гэйм
-        [SerializeField] private Button _pushMe;
+        //[SerializeField] private Button _pushMe;
 
 
 
@@ -70,9 +70,9 @@ namespace Maze
 
             _restartButton.gameObject.SetActive(false);//здесь мы наш объект будем выключать
 
-            _pushMe.gameObject.SetActive(false);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //_pushMe.gameObject.SetActive(false);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-            _pushMe.onClick.AddListener(_cameraController.CameraBump);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //_pushMe.onClick.AddListener(_cameraController.CameraBump);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
            
             foreach (var item in _interactiveObject)//переберeм и посмотрим, есть ли у нас Гуд Бонусы или БэдБонусы
@@ -80,7 +80,7 @@ namespace Maze
                 if (item is GoodBonus goodBonus)
                 {
                     goodBonus.AddPoints += AddPoint;//подпишемся на обработчик событий
-                    goodBonus.AddPoints += PushMe;
+                    //goodBonus.AddPoints += PushMe;
                    
                     
 
@@ -101,7 +101,7 @@ namespace Maze
             _displayBonus.Display(_bonusCount);//отображать на экране. Вызываем метод Дисплэй и передаем бонусКаунт
 
 
-            if (_bonusCount == 2)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (_bonusCount == 10)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 GameWinPlayer();
 
@@ -122,13 +122,13 @@ namespace Maze
 
         }
 
-        private void PushMe(int value)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        /*private void PushMe(int value)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         {
 
-            _pushMe.gameObject.SetActive(true);
+           // _pushMe.gameObject.SetActive(true);
             
 
-        }
+        }*/
                 
         private void GameWinPlayer()//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         {
@@ -138,14 +138,14 @@ namespace Maze
                 Time.timeScale = 0f;//остановим время
             
         }
-
+        
         
 
         void Update()
         {
-           if(Input.GetKeyDown(KeyCode.W))
+           //if(Input.GetKeyDown(KeyCode.W))
             {
-                _pushMe.gameObject.SetActive(false);
+                //_pushMe.gameObject.SetActive(false);
             }
             //_inputController.Update();//вызываем метод Update из InputController-ф
 
