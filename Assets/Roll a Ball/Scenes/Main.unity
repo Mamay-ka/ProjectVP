@@ -243,7 +243,6 @@ MonoBehaviour:
   _pointLabel: {fileID: 131624690}
   _gameOverLabel: {fileID: 1068402095}
   _restartButton: {fileID: 528317289}
-  _pushMe: {fileID: 948838235}
   _gameWinLabel: {fileID: 751102968}
   _bonusCount: 0
 --- !u!4 &305374402
@@ -914,7 +913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &948838234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1029,7 +1028,7 @@ GameObject:
   - component: {fileID: 990995505}
   - component: {fileID: 990995504}
   - component: {fileID: 990995507}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1206,7 +1205,7 @@ GameObject:
   - component: {fileID: 1184006114}
   - component: {fileID: 1184006113}
   - component: {fileID: 1184006116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MiniMapCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1730,7 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 8e6d164009172f94c9a8d4a71b9f8430, type: 2}
+  m_Material: {fileID: 2100000, guid: 979dc497b161b6d42a78c3f87c51d528, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
